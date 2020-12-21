@@ -1,0 +1,97 @@
+@media only screen and (max-width: 600px) {
+    
+}
+
+.flex-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+#header_area {
+    min-height: 64px;
+}
+
+.toolbar {
+  color: white;
+}
+
+#toolbar_content {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+}
+
+#name_container {
+    margin: 16px 8px;
+}
+
+#name {
+    font-weight: bold;
+}
+
+.side_drawer div {
+    min-width: 15%;
+}
+
+.side_drawer :first-child {
+    margin: 0;
+    overflow: hidden;
+}
+
+#left_drawer div.MuiDrawer-paperAnchorDockedLeft {
+    background-color: white;
+    top: 64px;
+    box-shadow: var(--elevation-3);
+    z-index: var(--level-3);
+}
+
+#drawer_list {
+    padding-top: 0;
+}
+
+.list_item {
+    justify-content: space-evenly;
+    box-shadow: var(--elevation-2);
+}
+
+.menu_icon {
+    min-width: 24px !important;
+    padding-right: 24px !important;
+}
+
+.user_buttons {
+    right: 0;
+    position: absolute;
+    display: flex;
+    padding: 0 4px;
+}
+
+#main_fabs {
+  display: flex;
+  position: fixed;
+  right: 6vw;
+  z-index: var(--level-4);
+  bottom: 8vh;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.fabs {
+  color: white !important;
+  margin: 2vh 0 0 0 !important;
+}
+
+#content_area {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--black-1);
+    margin: auto;
+}
+
+#github_link {
+    color: blue;
+    font-weight: bold;
+}

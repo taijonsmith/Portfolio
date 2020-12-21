@@ -1,0 +1,7 @@
+#scroll_to_top_button {
+    color: white;
+    position: fixed;
+    bottom: 12vh;
+    background-color: var(--green-1);
+    z-index: var(--level-4);
+}
