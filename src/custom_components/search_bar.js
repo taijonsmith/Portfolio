@@ -52,9 +52,9 @@ const useStyles = makeStyles((theme) => ({
       transition: theme.transitions.create('width'),
       width: '100%',
       [theme.breakpoints.up('sm')]: {
-        width: '20ch',
+        width: '18ch',
         '&:focus': {
-          width: '26ch',
+          width: '22ch',
         },
       },
     },

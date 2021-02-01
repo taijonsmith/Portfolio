@@ -1,52 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import './custom_components/css/custom_styles.css';
-import DesignOne from './custom_components/design_one'
+import AppToolbar from './custom_components/toolbar';
+import MenuDrawer from './custom_components/menu_drawer';
+import Fabs from './custom_components/fabs';
+import ScrollToTop from './custom_components/scroll_to_top';
+import DialogBox from './custom_components/dialog_box';
+import DesignOne from './custom_components/main_content/design_one';
+import DesignTwo from './custom_components/main_content/design_one';
+import { useSelector } from 'react-redux';
 
 
 function App() {
-  const [mobile_mode, setMobileMode] = useState(window.matchMedia("(max-width: 600px)").matches);
-  const [selected, setSelected] = useState(1);
-
-  useEffect((event) => {
-    window.matchMedia("(max-width: 600px)").addEventListener("change", () => {
-      set_mobile_mode(event)});
-
-    return function cleanup() {
-      window.matchMedia("(max-width: 600px)").removeEventListener("change", () => {set_mobile_mode(event)});
-    }
-  });
-
-  function set_mobile_mode(e) {
-    if (e) {
-      if (e.matches) {
-        // the viewport is 600 pixels wide or less
-        setMobileMode(true);
-      }
-      else {
-        setMobileMode(false);
-      }
-    }
-  }
-
-  function edit_class(action, element, class_name) {
-    if (element) {
-      if (action === "remove" && class_name) {
-        let re = new RegExp(`\\b${class_name}\\b`, 'g');
-        element.className = element.className.replace(re, "").trim();
-      }
-      else if (action === "add" && class_name) {
-        if (element.className.split(" ").indexOf(class_name) === -1) {
-          element.className += " " + class_name;
-        }
-      }
-    }
-    return;
-  }
+  const current_prototype = useSelector(state => state.current_prototype);
 
   return (
     <div className="App">
-      <DesignOne hidden={selected !== 1} mobile_mode={mobile_mode} edit_class={edit_class}/>
+      <section id="header_area">
+        <AppToolbar />
+        <MenuDrawer />
+      </section>
+      <section id="content">
+        <DialogBox />
+        <DesignOne hidden={current_prototype !== 1} /> {/* add transitions */}
+        <DesignTwo hidden={current_prototype !== 2} />
+      </section>
+      <section id="action_buttons">
+        <Fabs />
+        <ScrollToTop />
+      </section>
     </div>
   );
 }

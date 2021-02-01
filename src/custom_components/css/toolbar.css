@@ -1,0 +1,45 @@
+@media only screen and (max-width: 600px) {
+    #app_name {
+        letter-spacing: initial !important;
+    }
+
+    #name_container {
+        width: 100%;
+    }
+}
+
+.toolbar {
+    background-color: var(--green-1);
+    color: white;
+}
+
+#toolbar_content {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+}
+
+#menu_button {
+    opacity: .98;
+}
+
+#menu_button:hover {
+    opacity: 1;
+}
+
+#name_container {
+    padding: 0 8px;
+}
+
+#name {
+    font-weight: bold;
+}
+
+#search_bar {
+    margin: 0 auto !important;
+}
+
+.MuiBadge-badge {
+    background-color: var(--red-1);
+}
