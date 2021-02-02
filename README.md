@@ -1,2 +1,2 @@
 # UI-UX-Portfolio
-This repo is dedicated to displaying responsive UI/UX prototypes that I created from scratch. The first few design projects will be made using Material Design inspired themes (using React & MaterialUI). I will provide screenshots (or links to screenshots) as well.
+This repo is dedicated to displaying my responsive UI/UX design ideas in a PWA. The initial prototypes will be made using Material Design inspired themes (using React, Redux & Material-UI). I will provide screenshots (or links to screenshots) as well.
