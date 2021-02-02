@@ -1,5 +1,6 @@
 #main_fabs .fabs {
     background-color: var(--green-1);
+    color: white;
 }
 
 #main_fabs {
@@ -15,4 +16,12 @@
 .fabs {
     color: white !important;
     margin: 2vh 0 0 0 !important;
+}
+
+.fabs #github_link {
+    color: white;
+}
+
+.fabs span {
+    font-size: 0;
 }

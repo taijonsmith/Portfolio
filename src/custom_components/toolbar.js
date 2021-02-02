@@ -85,38 +85,41 @@ export default function AppToolbar() {
 
     
     return (
-        <AppBar>
-            <Toolbar className="toolbar">
-                <div id="toolbar_content">
-                    <IconButton id="menu_button" edge="start" color="inherit" aria-label="menu" onClick={() => dispatch(toggle_left_menu(left_menu_opened))}>
-                        <MenuIcon />
-                    </IconButton>
-                    <div id="name_container">
-                        <Typography id="name" variant="h6" noWrap>Prototype 1</Typography>
+        <React.Fragment>
+            <AppBar>
+                <Toolbar className="toolbar">
+                    <div id="toolbar_content">
+                        <IconButton id="menu_button" edge="start" color="inherit" aria-label="menu" onClick={() => dispatch(toggle_left_menu(left_menu_opened))}>
+                            <MenuIcon />
+                        </IconButton>
+                        <div id="name_container">
+                            <Typography id="name" variant="h6" noWrap>Prototype 1</Typography>
+                        </div>
+                        
+                        <SearchBar id="search_bar" mobile_mode={mobile_mode}></SearchBar>
+
+                        <IconButton id="notifications" color="inherit" aria-label="notifications" onClick={toolbar_button_clicked}>
+                            <Badge badgeContent={notificationsCount} invisible={hideNotificationsBadge}>
+                                <NotificationsIcon></NotificationsIcon>
+                            </Badge>
+                        </IconButton>
+
+                        <IconButton id="messages" color="inherit" aria-label="messages" onClick={toolbar_button_clicked}>
+                            <Badge badgeContent={messagesCount} invisible={hideMessagesBadge}>
+                                <EmailIcon></EmailIcon>
+                            </Badge>
+                        </IconButton>
+
+                        <IconButton id="account" color="inherit" aria-label="account" edge="end" onClick={toolbar_button_clicked}>
+                            <Badge variant="dot" invisible={hideAccountBadge}>
+                                <AccountCircle></AccountCircle>
+                            </Badge>
+                        </IconButton>
+                        <MenuOptions menu_items={menuItem} anchor={anchorEl} setAnchorEl={setAnchorEl} open={openMenu} setOpen={setOpenMenu}></MenuOptions>
                     </div>
-                    
-                    <SearchBar id="search_bar" mobile_mode={mobile_mode}></SearchBar>
-
-                    <IconButton id="notifications" color="inherit" aria-label="notifications" onClick={toolbar_button_clicked}>
-                        <Badge badgeContent={notificationsCount} invisible={hideNotificationsBadge}>
-                            <NotificationsIcon></NotificationsIcon>
-                        </Badge>
-                    </IconButton>
-
-                    <IconButton id="messages" color="inherit" aria-label="messages" onClick={toolbar_button_clicked}>
-                        <Badge badgeContent={messagesCount} invisible={hideMessagesBadge}>
-                            <EmailIcon></EmailIcon>
-                        </Badge>
-                    </IconButton>
-
-                    <IconButton id="account" color="inherit" aria-label="account" edge="end" onClick={toolbar_button_clicked}>
-                        <Badge variant="dot" invisible={hideAccountBadge}>
-                            <AccountCircle></AccountCircle>
-                        </Badge>
-                    </IconButton>
-                    <MenuOptions menu_items={menuItem} anchor={anchorEl} setAnchorEl={setAnchorEl} open={openMenu} setOpen={setOpenMenu}></MenuOptions>
-                </div>
-            </Toolbar>
-        </AppBar>
+                </Toolbar>
+            </AppBar>
+            <Toolbar />
+        </React.Fragment>
     );
 };
