@@ -10,11 +10,28 @@ import DesignOne from './custom_components/main_content/design_one';
 import DesignTwo from './custom_components/main_content/design_one';
 import { useSelector } from 'react-redux';
 
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
 
 function App() {
   const current_prototype = useSelector(state => state.current_prototype);
+  const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: '#21b366'
+        },
+        secondary: {
+            main: '#3b3e42'
+        }
+    },
+    typography: {
+        fontFamily: 'inherit'
+    }
+  });
 
   return (
+  <ThemeProvider theme={theme}>
     <div className="App">
       <section id="header_area">
         <AppToolbar />
@@ -29,7 +46,7 @@ function App() {
         <Fabs />
         <ScrollToTop />
       </section>
-    </div>
+    </div></ThemeProvider>
   );
 }
 
