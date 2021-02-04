@@ -22,6 +22,10 @@ export default function DialogBox(props) {
     dispatch(close_dialog());
   };
 
+  useEffect(() => {
+    console.log(dialog)
+  })
+
   return (
       <Dialog
         id="dialog_box"

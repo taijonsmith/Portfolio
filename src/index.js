@@ -14,7 +14,7 @@ const store = createStore(allReducers, {
   left_menu_opened: false,
   current_prototype: 1,
   mobile_mode: window.matchMedia("(max-width: 600px)").matches,
-  dialog: {opened: false, type: 'info', title: null, content: null},
+  dialog: {opened: false, type: null, title: null, content: null},
   user: {user_id: 1, logged_in: false}
 });
 
