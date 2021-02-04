@@ -28,12 +28,12 @@ export default function MenuDrawer() {
             }},
             {name: 'Prototype 2', icon: <Filter2Icon/>, callback: () => {
                 dispatch(toggle_left_menu(left_menu_opened));
-                dispatch(open_dialog('info', 'Prototype 2', 'Prototype 2 Coming Soon!'));
+                dispatch(open_dialog('general', 'Prototype 2', 'Prototype 2 Coming Soon!'));
                 //dispatch(set_current_prototype(2));
             }},
             {name: 'About Me', icon: <AccountBoxIcon/>, callback: () => {
                 dispatch(toggle_left_menu(left_menu_opened));
-                dispatch(open_dialog('info', 'About Me', <React.Fragment><Typography>{about_me}</Typography><br/><a id="github_link" href="https://github.com/taijonsmith">Visit My GitHub Page!</a></React.Fragment>));
+                dispatch(open_dialog('general', 'About Me', <React.Fragment><Typography>{about_me}</Typography><br/><a id="github_link" href="https://github.com/taijonsmith">Visit My GitHub Page!</a></React.Fragment>));
             }},
     ];
 

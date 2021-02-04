@@ -15,7 +15,7 @@ const store = createStore(allReducers, {
   current_prototype: 1,
   mobile_mode: window.matchMedia("(max-width: 600px)").matches,
   dialog: {opened: false, type: null, title: null, content: null},
-  user: {user_id: 1, logged_in: false}
+  user: {user_id: null, email: null, logged_in: false}
 });
 
 ReactDOM.render(

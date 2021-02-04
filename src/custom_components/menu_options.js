@@ -10,11 +10,14 @@ import Paper from '@material-ui/core/Paper';
 export default function MenuOptions(props) {
     var anchor = props.anchor;
 
-    const handleClose = (e) => {
+    const handleClose = (e, item_callback) => {
         if (anchor && anchor.contains(e.target)) {
             return;
         }
         props.setOpen(false);
+        if (item_callback) {
+          item_callback();
+        }
     };
 
     function handleListKeyDown(event) {
@@ -33,7 +36,7 @@ export default function MenuOptions(props) {
     }, [props.open, anchor]);
     
     const menu_items = props.menu_items ? props.menu_items.map((item, index) => (
-        <MenuItem key={index} onClick={handleClose}>{item.name}</MenuItem>
+        <MenuItem key={index} onClick={(e) => {handleClose(e, item.callback)}}>{item.name}</MenuItem>
     )) : [];
 
     return (
@@ -42,6 +45,7 @@ export default function MenuOptions(props) {
             <Grow
               {...TransitionProps}
               style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+              exit={false}
             >
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>

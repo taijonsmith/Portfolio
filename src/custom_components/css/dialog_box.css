@@ -1,6 +1,6 @@
 #dialog_title h2 {
     font-weight: bold;
-    align-self: center;
+    text-align: center;
 }
 
 #close_button {
@@ -14,4 +14,8 @@
 
 #dialog_description {
     text-align: center;
+}
+
+.MuiListItemAvatar-root .avatar{
+    background-color: var(--green-1);
 }
