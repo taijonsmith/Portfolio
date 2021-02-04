@@ -1,3 +1,8 @@
+#dialog_title h2 {
+    font-weight: bold;
+    align-self: center;
+}
+
 #close_button {
     color: var(--green-1);
     font-weight: bold;

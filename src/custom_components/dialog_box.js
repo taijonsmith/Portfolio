@@ -14,17 +14,13 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function DialogBox(props) {
+export default function DialogBox() {
   const dialog = useSelector(state => state.dialog);
   const dispatch = useDispatch();
 
   const handleClose = () => {
     dispatch(close_dialog());
   };
-
-  useEffect(() => {
-    console.log(dialog)
-  })
 
   return (
       <Dialog
