@@ -7,15 +7,13 @@ import Fabs from './custom_components/fabs';
 import ScrollToTop from './custom_components/scroll_to_top';
 import DialogBox from './custom_components/dialog_box';
 import DesignOne from './custom_components/main_content/design_one';
-import DesignTwo from './custom_components/main_content/design_one';
-import { useSelector } from 'react-redux';
+import DesignTwo from './custom_components/main_content/design_two';
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
 
 function App() {
-  const current_prototype = useSelector(state => state.current_prototype);
   const theme = createMuiTheme({
     palette: {
         primary: {
@@ -37,10 +35,9 @@ function App() {
         <AppToolbar />
         <MenuDrawer />
       </section>
-      <section id="content">
+      <section id="content_area">
         <DialogBox />
-        <DesignOne hidden={current_prototype !== 1} /> {/* add transitions */}
-        <DesignTwo hidden={current_prototype !== 2} />
+        <DesignOne />
       </section>
       <section id="action_buttons">
         <Fabs />

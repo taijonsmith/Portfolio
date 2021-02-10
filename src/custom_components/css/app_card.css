@@ -1,0 +1,9 @@
+#app_card { 
+    transition: all .2s ease-in-out;
+    margin: 16px;
+    max-width: 30%;
+}
+
+#app_card:hover {
+    transform: scale(1.03); 
+}
