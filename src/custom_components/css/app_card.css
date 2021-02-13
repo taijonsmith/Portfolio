@@ -14,6 +14,10 @@
     margin: auto;
 }
 
+.card_content {
+    text-align: center;
+}
+
 .card_link {
     text-decoration: none;
     color: inherit;

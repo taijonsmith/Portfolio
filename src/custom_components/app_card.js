@@ -26,13 +26,12 @@ export default function AppCard(props) {
           image={props.image}
           title={props.name}
         />
-        <CardContent>
+        <CardContent className="card_content">
           <Typography gutterBottom variant="h5" component="h2">
           {props.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            This is placeholder text for the card's content. Typically this section of content would consist of a quick description of the main content of the card. 
           </Typography>
         </CardContent>
       </CardActionArea>
