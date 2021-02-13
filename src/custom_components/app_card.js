@@ -17,9 +17,10 @@ const useStyles = makeStyles({
 
 export default function AppCard(props) {
   const classes = useStyles();
+  const item_description = "This is placeholder text for the card's content. Typically this section of content would consist of a quick description of the main content of the card.";
 
   return (
-    <Card id="app_card" raised >
+    <Card id="app_card" raised>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -31,7 +32,7 @@ export default function AppCard(props) {
           {props.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            This is placeholder text for the card's content. Typically this section of content would consist of a quick description of the main content of the card. 
+            {item_description}
           </Typography>
         </CardContent>
       </CardActionArea>

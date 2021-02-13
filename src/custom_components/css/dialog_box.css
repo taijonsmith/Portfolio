@@ -8,10 +8,6 @@
     font-weight: bold;
 }
 
-#dialog_box .MuiDialog-paper {
-    min-width: 50%;
-}
-
 #dialog_description {
     text-align: center;
 }
