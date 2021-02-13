@@ -37,11 +37,8 @@ export default function AppCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
+        <Button className="action_button" size="small" color="primary">
+            <a className="card_link" href={props.url} target="_blank" rel="noreferrer">Go To Profile</a>
         </Button>
       </CardActions>
     </Card>

@@ -3,6 +3,10 @@
     flex-wrap: wrap;
 }
 
+#card_content {
+    justify-content: center;
+}
+
 #github_link {
     font-weight: bold;
 }
