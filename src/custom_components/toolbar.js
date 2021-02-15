@@ -114,8 +114,7 @@ export default function AppToolbar() {
                                 <AccountCircle></AccountCircle>
                             </Badge>
                         </IconButton></React.Fragment>) : (<Button color="inherit" onClick={() => dispatch(open_dialog('login', 'Accounts', 'Prototype 2 Coming Soon!'))}>Login</Button>)}
-
-
+                        
                         <MenuOptions menu_items={menuItems} anchor={anchorEl} setAnchorEl={setAnchorEl} open={openMenu} setOpen={setOpenMenu}></MenuOptions>
                     </div>
                 </Toolbar>

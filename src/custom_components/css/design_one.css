@@ -3,6 +3,22 @@
     flex-wrap: wrap;
 }
 
+#design_one .tabs_toolbar {
+    top: auto;
+    right: auto;
+    margin: 0 auto;
+    z-index: var(--level-1);
+}
+
+#views .react-swipeable-view-container {
+    margin: 72px;
+    min-height: 100vh;
+}
+
+.content_page {
+    margin: 16px;
+}
+
 #card_content {
     justify-content: center;
 }

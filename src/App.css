@@ -8,12 +8,12 @@
   font-size: calc(10px + 2vmin);
 }
 
-#content_area {
-  width: inherit;
+#header_area .main_toolbar {
+  z-index: var(--very-front);
 }
 
-.content {
-  margin: 16px;
+#content_area {
+  width: inherit;
 }
 
 .subheader {
