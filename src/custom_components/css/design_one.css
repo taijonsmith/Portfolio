@@ -19,6 +19,18 @@
     margin: 16px;
 }
 
+.tabs .MuiTab-textColorPrimary {
+    color: white;
+}
+
+#design_one .MuiIconButton-root {
+    color: white;
+}
+
+#refresh_container {
+    text-align: center;
+}
+
 #card_content {
     justify-content: center;
 }

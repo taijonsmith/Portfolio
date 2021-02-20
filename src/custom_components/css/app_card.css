@@ -1,9 +1,12 @@
 #app_card { 
     transition: all .2s ease-in-out;
     margin: 16px;
+    overflow: auto;
+    min-width: 200px;
     max-width: 300px;
     max-height: 356px;
-    overflow: auto;
+    background-color: var(--black-1);
+    color: white;
 }
 
 #app_card:hover {

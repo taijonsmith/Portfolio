@@ -8,6 +8,21 @@
   font-size: calc(10px + 2vmin);
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  background-color: #aaadaf;
+}
+
 #header_area .main_toolbar {
   z-index: var(--very-front);
 }
@@ -18,7 +33,6 @@
 
 .subheader {
   text-align: center;
-  padding-bottom: 16px;
   color: white;
 }
 
@@ -27,4 +41,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
+}
+
+.rotate360 {
+  transform: rotate(360deg) !important;
+  transition: transform 1s ease-out !important;
 }
