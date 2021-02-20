@@ -31,6 +31,10 @@ export default function DesignOne(props) {
         setTabIndex(newValue);
     }
 
+    function tabIndexChanged(index) {
+        setTabIndex(index);
+    }
+
     function rotate_button() {
         edit_class('remove', refresh_button.current, 'rotate360');
         void refresh_button.current.offsetWidth;
@@ -97,7 +101,7 @@ export default function DesignOne(props) {
                         </Toolbar>
                     </AppBar>
                 </HideOnScroll>
-                <SwipeableViews id="views" index={tabIndex}>
+                <SwipeableViews id="views" index={tabIndex} onChangeIndex={tabIndexChanged}>
                     <div id="tv_actors" className="content_page">
                         <Typography className="subheader" variant="h6">TV Actors</Typography>
                         {loading ? 
