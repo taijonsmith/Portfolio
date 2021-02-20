@@ -59,6 +59,7 @@ export default function DesignOne(props) {
     }
 
     function refresh_content(api_url) {
+        window.scrollTo({top: 0, behavior: 'smooth'});
         setRefreshing(true);
         const callback = () => {
             rotate_button();
