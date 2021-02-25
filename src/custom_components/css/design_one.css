@@ -15,10 +15,6 @@
     min-height: 100vh;
 }
 
-.content_page {
-    margin: 16px;
-}
-
 .tabs .MuiTab-textColorPrimary {
     color: white;
 }
@@ -27,12 +23,8 @@
     color: white;
 }
 
-#refresh_container {
-    text-align: center;
-}
-
-#card_content {
-    justify-content: center;
+#design_one .content_page {
+    margin: 16px;
 }
 
 #github_link {
