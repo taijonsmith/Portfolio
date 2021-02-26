@@ -16,6 +16,9 @@ export default function TvActors(props) {
     const debounce = debouncer(function(callback, time){ callback(time); return time }, 400);
 
     function rotate_button() {
+        if (!refresh_button.current) {
+            return;
+        }
         edit_class('remove', refresh_button.current, 'rotate360');
         void refresh_button.current.offsetWidth;
         edit_class('add', refresh_button.current, 'rotate360');
@@ -26,8 +29,8 @@ export default function TvActors(props) {
         if (!api_url) {
             return;
         }
-        setRefreshing(true);
         const callback = () => {
+            setRefreshing(true);
             rotate_button();
             props.get_api_content(api_url).then((data) => {
                 setContentList(data);
@@ -59,7 +62,7 @@ export default function TvActors(props) {
                 (<div id="actors_page" className="content_page">
                     <Typography className="subheader" variant="h6">TV Actors</Typography>
                     <div className="refresh_container">
-                        <IconButton ref={refresh_button} id="refresh_button" onClick={() => refresh_content(people_api_url)} aria-label="refresh button">
+                        <IconButton ref={refresh_button} id="refresh_button" onClick={() => refresh_content(people_api_url)} aria-label="refresh button" disabled={refreshing}>
                             <RefreshIcon />
                         </IconButton>
                     </div>
