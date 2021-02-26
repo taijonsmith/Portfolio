@@ -62,8 +62,12 @@ export default function DesignOne(props) {
         //waits for window to scroll to page-specific scroll position
         setTimeout(() => {
             setForceShowTabs(true);
-        }, 10);
+        }, 500);
     }, [tabIndex])
+
+    useEffect(() => {
+        window.scrollTo({top: 0});
+    }, []);
 
     const tabs = props.tabs && props.tabs.length > 0 ? props.tabs.map((tab, index) => {
         return (<Tab key={index} label={tab.label} icon={tab.icon} />);

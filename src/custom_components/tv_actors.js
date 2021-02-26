@@ -60,7 +60,7 @@ const TvActors = React.forwardRef((props, ref) => {
 
     useEffect(() => {
         if (props.current_tab === props.tab_index) {
-            window.scrollTo({ top: scrollPosition, behavior: 'auto'});
+            window.scrollTo({ top: scrollPosition, behavior: 'smooth'});
         }
     }, [props.current_tab])
 
