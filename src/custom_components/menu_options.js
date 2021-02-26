@@ -6,6 +6,7 @@ import Popper from '@material-ui/core/Popper';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 
 export default function MenuOptions(props) {
     var anchor = props.anchor;
@@ -35,12 +36,13 @@ export default function MenuOptions(props) {
         prevOpen.current = props.open;
     }, [props.open, anchor]);
     
-    const menu_items = props.menu_items ? props.menu_items.map((item, index) => (
-        <MenuItem key={index} onClick={(e) => {handleClose(e, item.callback)}}>{item.name}</MenuItem>
-    )) : [];
+    const menu_items = props.menu_items ? props.menu_items.map((item, index) =>  {
+        const icon = item.icon ? (<ListItemIcon>{item.icon}</ListItemIcon>) : null;
+        return <MenuItem key={index} onClick={(e) => {handleClose(e, item.callback)}}>{icon}{item.name}</MenuItem>
+    }) : [];
 
     return (
-        <Popper open={props.open} anchorEl={anchor} role={undefined} transition disablePortal>
+        <Popper className="options" open={props.open} anchorEl={anchor} role={undefined} transition disablePortal>
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}

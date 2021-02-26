@@ -8,6 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import EmailIcon from '@material-ui/icons/Email';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import SettingsIcon from '@material-ui/icons/Settings';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
 import SearchBar from './search_bar';
@@ -32,9 +35,10 @@ export default function AppToolbar() {
     const left_menu_opened = useSelector(state => state.left_menu_opened);
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
-    const account_items = [
-        {name: 'Profile'}, {name: 'My Account'},
-        {name: 'Settings'}, {name: 'Logout', callback: () => {
+    const account_items = [ 
+        {name: 'My Account', icon: <AccountBoxIcon />},
+        {name: 'Settings', icon: <SettingsIcon />},
+        {name: 'Logout',  icon: <ExitToAppIcon />, callback: () => {
             dispatch(logout_user(user));
         }}
     ];
