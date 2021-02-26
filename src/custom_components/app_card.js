@@ -14,6 +14,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 const useStyles = makeStyles({
   media: {
     height: 140,
+    objectPosition: 'top'
   },
 });
 
