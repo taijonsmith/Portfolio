@@ -68,6 +68,7 @@ export default function DesignOne(props) {
 
     useEffect(() => {
         setTabIndex(0);
+        window.scrollTo({top: 0});
     }, [logged_in]);
 
     useEffect(() => {
