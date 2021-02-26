@@ -62,7 +62,7 @@ export default function DesignOne(props) {
         //waits for window to scroll to page-specific scroll position
         setTimeout(() => {
             setForceShowTabs(true);
-        }, 500);
+        }, 800);
     }, [tabIndex])
 
     useEffect(() => {
