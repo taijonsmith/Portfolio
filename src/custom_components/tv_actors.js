@@ -1,19 +1,27 @@
 import React, { useEffect } from 'react';
 import './css/tv_actors.css';
 import { edit_class, debouncer } from '../utils';
+import { useEvent } from './utility_hooks/use_event';
 import AppCard from './app_card';
 import RefreshPage from './refresh_page';
 import IconButton from '@material-ui/core/IconButton';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import Typography from '@material-ui/core/Typography';
 
-export default function TvActors(props) {
+
+const TvActors = React.forwardRef((props, ref) => {
     const refresh_button = React.useRef(null);
+    const [scrollPosition, setScrollPosition] = React.useState(window.pageYOffset);
     const [loading, setLoading] = React.useState(false);
     const [refreshing, setRefreshing] = React.useState(false);
     const [contentList, setContentList] = React.useState([]);
     const people_api_url = 'https://api.tvmaze.com/people/';
     const debounce = debouncer(function(callback, time){ callback(time); return time }, 400);
+    useEvent('scroll', () => {
+        if (props.current_tab === props.tab_index) {
+            setScrollPosition(window.pageYOffset);
+        }
+    });
 
     function rotate_button() {
         if (!refresh_button.current) {
@@ -50,6 +58,12 @@ export default function TvActors(props) {
         load_initial_data();
     }, []);
 
+    useEffect(() => {
+        if (props.current_tab === props.tab_index) {
+            window.scrollTo({ top: scrollPosition, behavior: 'auto'});
+        }
+    }, [props.current_tab])
+
     const card_content = contentList && contentList.length > 0 ? contentList.map((content, index) => {
         const image = content.image ? content.image.medium : null;
         return (<AppCard key={index} name={content.name} image={image} url={content.url} refreshing={refreshing} />);
@@ -59,7 +73,7 @@ export default function TvActors(props) {
     return (
         <React.Fragment>
             {loading ? <RefreshPage /> :
-                (<div id="actors_page" className="content_page">
+                (<div ref={ref} id="actors_page" className="content_page">
                     <Typography className="subheader" variant="h6">TV Actors</Typography>
                     <div className="refresh_container">
                         <IconButton ref={refresh_button} id="refresh_button" onClick={() => refresh_content(people_api_url)} aria-label="refresh button" disabled={refreshing}>
@@ -73,4 +87,6 @@ export default function TvActors(props) {
             }
         </React.Fragment>
     )
-}
+})
+
+export default TvActors;

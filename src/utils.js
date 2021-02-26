@@ -29,5 +29,5 @@ export const debouncer = (func, wait) => { //callback func must be passed in
 };
 
 export const scroll_to_top = () => {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }

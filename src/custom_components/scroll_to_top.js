@@ -10,7 +10,7 @@ function ScrollToTop() {
     const trigger = useScrollTrigger({threshold: 20});
 
     function scroll_to_top () {
-        window.scrollTo({ top: 0 });
+        window.scrollTo({ top: 0,  behavior: 'smooth'});
     }
 
   return (
