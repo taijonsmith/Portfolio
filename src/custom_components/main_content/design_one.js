@@ -19,6 +19,7 @@ export default function DesignOne(props) {
     const placeholder_1 = useRef(null);
     const placeholder_ref = useRef(null);
     const current_prototype = useSelector(state => state.current_prototype);
+    const logged_in = useSelector(state => state.user.logged_in);
     const [tabIndex, setTabIndex] = React.useState(0);
     const [forceShowTabs, setForceShowTabs] = React.useState(false);
     const DEFAULT_DATA_COUNT = 12;
@@ -63,7 +64,11 @@ export default function DesignOne(props) {
         setTimeout(() => {
             setForceShowTabs(true);
         }, 800);
-    }, [tabIndex])
+    }, [tabIndex]);
+
+    useEffect(() => {
+        setTabIndex(0);
+    }, [logged_in]);
 
     useEffect(() => {
         window.scrollTo({top: 0});

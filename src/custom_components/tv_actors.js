@@ -7,6 +7,7 @@ import RefreshPage from './refresh_page';
 import IconButton from '@material-ui/core/IconButton';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import Typography from '@material-ui/core/Typography';
+import { useSelector } from 'react-redux';
 
 
 const TvActors = React.forwardRef((props, ref) => {
@@ -15,6 +16,7 @@ const TvActors = React.forwardRef((props, ref) => {
     const [loading, setLoading] = React.useState(false);
     const [refreshing, setRefreshing] = React.useState(false);
     const [contentList, setContentList] = React.useState([]);
+    const logged_in = useSelector(state => state.user.logged_in);
     const people_api_url = 'https://api.tvmaze.com/people/';
     const debounce = debouncer(function(callback, time){ callback(time); return time }, 400);
     useEvent('scroll', () => {
@@ -49,20 +51,28 @@ const TvActors = React.forwardRef((props, ref) => {
     }
 
     useEffect(() => {
-        async function load_initial_data() {
-            setLoading(true);
-            const data = await props.get_api_content(people_api_url);
-            setContentList(data);
-            setLoading(false);
+        if (contentList.length === 0) {
+            async function load_initial_data() {
+                setLoading(true);
+                const data = await props.get_api_content(people_api_url);
+                setContentList(data);
+                setLoading(false);
+            }
+            load_initial_data();
         }
-        load_initial_data();
-    }, []);
+    }, [contentList]);
 
     useEffect(() => {
         if (props.current_tab === props.tab_index) {
             window.scrollTo({ top: scrollPosition, behavior: 'smooth'});
         }
-    }, [props.current_tab])
+    }, [props.current_tab]);
+
+    useEffect(() => {
+        if (contentList.length > 0) {
+            setContentList([]);
+        }
+    }, [logged_in]);
 
     const card_content = contentList && contentList.length > 0 ? contentList.map((content, index) => {
         const image = content.image ? content.image.medium : null;

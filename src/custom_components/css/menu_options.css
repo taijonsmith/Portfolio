@@ -1,3 +1,11 @@
+.options {
+    outline: none;
+}
+
+.options .MuiList-root {
+    outline: none;
+}
+
 .options .MuiListItemIcon-root {
     min-width: 40px;
 }
