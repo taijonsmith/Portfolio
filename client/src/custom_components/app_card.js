@@ -49,7 +49,7 @@ export default function AppCard(props) {
                 <Typography gutterBottom variant="h5" component="h2">
                 {props.name}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography variant="body2" component="p">
                   {item_description}
                 </Typography>
               </React.Fragment>)

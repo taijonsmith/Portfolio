@@ -73,13 +73,21 @@ export default function AppToolbar() {
         event.stopPropagation();
     };
 
+    function close_drawer() {
+        if (left_menu_opened) {
+            dispatch(toggle_left_menu(left_menu_opened));
+        }
+    }
+
+    useEffect(() => {
+        close_drawer();
+    }, [user.logged_in]);
+
     useEffect(() => {
         const handleResize = () => {
             if (window.matchMedia("(max-width: 600px)").matches) {
                 dispatch(set_mobile_mode(true));
-                if (left_menu_opened) {
-                    dispatch(toggle_left_menu(left_menu_opened));
-                }
+                close_drawer();
             }
             else {
                 dispatch(set_mobile_mode(false));

@@ -84,7 +84,7 @@ const TvHome = React.forwardRef((props, ref) => {
         <React.Fragment>
             {loading ? <RefreshPage /> :
                 (<div ref={ref} id="actors_page" className="content_page">
-                    <Typography className="subheader" variant="h6">TV Actors</Typography>
+                    <Typography className="subheader" variant="h6">Home</Typography>
                     <div className="refresh_container">
                         <IconButton ref={refresh_button} id="refresh_button" onClick={() => refresh_content(people_api_url)} aria-label="refresh button" disabled={refreshing}>
                             <RefreshIcon />

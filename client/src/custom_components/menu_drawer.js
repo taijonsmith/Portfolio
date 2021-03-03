@@ -19,7 +19,7 @@ export default function MenuDrawer() {
     const drawer = useRef(null);
     const left_menu_opened = useSelector(state => state.left_menu_opened);
     const dispatch = useDispatch();
-    const about_me = 'My name is TaiJon and I\'m a full stack web developer from Louisville, KY. I love designing and creating dynamic web applications. This PWA prototype project is built using React, Redux and Material-UI components. I will continue building on this application over time to experiment with and implement various design concepts.'
+    const about_me = 'My name is TaiJon and I\'m a full stack web developer from Louisville, KY. I love designing and creating dynamic web applications. This PWA prototype project is built using React, Redux and Material-UI components for the front end, and Node (Express) and MongoDB for the back end & database. I will continue building on this application over time to experiment with and implement various design concepts and technologies.'
     const menu_items_list =
         [
             {name: 'Prototype 1', icon: <Filter1Icon/>, callback: () => {
