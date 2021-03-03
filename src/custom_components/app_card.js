@@ -1,6 +1,6 @@
 import React from 'react';
 import './css/app_card.css';
-import FALLBACK_IMAGE from '../images/image-not-found.jpg';
+import FALLBACK_IMAGE from '../resources/images/image-not-found.jpg';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';

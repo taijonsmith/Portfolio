@@ -103,21 +103,23 @@ export default function AppToolbar() {
                         <SearchBar id="search_bar" mobile_mode={mobile_mode}></SearchBar>
 
                         {user.logged_in ? 
-                        (<React.Fragment><IconButton id="notifications" color="inherit" aria-label="notifications" onClick={toolbar_button_clicked}>
-                            <Badge badgeContent={notificationsCount} invisible={hideNotificationsBadge}>
-                                <NotificationsIcon></NotificationsIcon>
-                            </Badge>
-                        </IconButton>
-                        <IconButton id="messages" color="inherit" aria-label="messages" onClick={toolbar_button_clicked}>
-                            <Badge badgeContent={messagesCount} invisible={hideMessagesBadge}>
-                                <EmailIcon></EmailIcon>
-                            </Badge>
-                        </IconButton>
-                        <IconButton id="account" color="inherit" aria-label="account" edge="end" onClick={toolbar_button_clicked}>
-                            <Badge variant="dot" invisible={hideAccountBadge}>
-                                <AccountCircle></AccountCircle>
-                            </Badge>
-                        </IconButton></React.Fragment>) : (<Button color="inherit" onClick={() => dispatch(open_dialog('login', 'Accounts', 'Prototype 2 Coming Soon!'))}>Login</Button>)}
+                        (<React.Fragment>
+                            <IconButton id="notifications" color="inherit" aria-label="notifications" onClick={toolbar_button_clicked}>
+                                <Badge badgeContent={notificationsCount} invisible={hideNotificationsBadge}>
+                                    <NotificationsIcon></NotificationsIcon>
+                                </Badge>
+                            </IconButton>
+                            <IconButton id="messages" color="inherit" aria-label="messages" onClick={toolbar_button_clicked}>
+                                <Badge badgeContent={messagesCount} invisible={hideMessagesBadge}>
+                                    <EmailIcon></EmailIcon>
+                                </Badge>
+                            </IconButton>
+                            <IconButton id="account" color="inherit" aria-label="account" edge="end" onClick={toolbar_button_clicked}>
+                                <Badge variant="dot" invisible={hideAccountBadge}>
+                                    <AccountCircle></AccountCircle>
+                                </Badge>
+                            </IconButton>
+                        </React.Fragment>) : (<Button color="inherit" onClick={() => dispatch(open_dialog('login', 'Accounts', ''))}>Login</Button>)}
                         
                         <MenuOptions menu_items={menuItems} anchor={anchorEl} setAnchorEl={setAnchorEl} open={openMenu} setOpen={setOpenMenu}></MenuOptions>
                     </div>

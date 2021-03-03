@@ -22,7 +22,6 @@
     box-shadow: var(--elevation-2);
 }
 
-.menu_icon {
-    min-width: 24px !important;
-    padding-right: 24px !important;
+.list_item .menu_icon {
+    padding-right: 16px;
 }

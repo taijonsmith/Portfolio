@@ -3,7 +3,7 @@ export const CLOSE_DIALOG = 'content:onCloseDialog';
 
 export function open_dialog(type, title, content) {
     var open;
-    if (!type || !title || !content) {
+    if (!type || !title || (type !== 'login' && !content)) {
         open = false;
     }
     else {

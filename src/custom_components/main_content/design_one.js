@@ -6,6 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import SwipeableViews from 'react-swipeable-views';
+import TvHome from '../tv_home';
 import TvActors from '../tv_actors';
 import PlaceHolderPage from '../placeholder_page';
 import Grow from '@material-ui/core/Grow';
@@ -15,8 +16,8 @@ import HideOnScroll from '../utility_hooks/hide_on_scroll';
 
 export default function DesignOne(props) {
     const views = useRef(null);
+    const tv_home = useRef(null);
     const tv_actors = useRef(null);
-    const placeholder_1 = useRef(null);
     const placeholder_ref = useRef(null);
     const current_prototype = useSelector(state => state.current_prototype);
     const logged_in = useSelector(state => state.user.logged_in);
@@ -80,7 +81,7 @@ export default function DesignOne(props) {
 
     const placeholders = props.tabs && props.tabs.length > 0 ? props.tabs.map((placeholder, index) => {
         let i = index + 2;
-        return (<PlaceHolderPage key={i} ref={placeholder_ref} tab_index={i} current_tab={tabIndex} id={"placeholder_" + i} />);
+        return (<PlaceHolderPage key={i} ref={placeholder_ref} tab_index={i} current_tab={tabIndex} />);
     }) : [];
 
     return (
@@ -100,8 +101,8 @@ export default function DesignOne(props) {
                 id="views" 
                 index={tabIndex} 
                 onChangeIndex={tabIndexChanged}>
-                    <TvActors ref={tv_actors} id="tv_actors" tab_index={0} current_tab={tabIndex} get_api_content={get_api_content} />
-                    <TvActors ref={placeholder_1} id="placeholder_1" tab_index={1} current_tab={tabIndex} get_api_content={get_api_content} />
+                    <TvHome ref={tv_home} id="tv_home" tab_index={0} current_tab={tabIndex} get_api_content={get_api_content} />
+                    <TvActors ref={tv_actors} id="tv_actors" tab_index={1} current_tab={tabIndex} get_api_content={get_api_content} />
                     {placeholders}
                 </SwipeableViews>
             </div>
