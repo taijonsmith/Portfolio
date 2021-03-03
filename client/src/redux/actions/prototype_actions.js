@@ -1,4 +1,4 @@
-export const SET_CURRENT_PROTOTYPE = 'content:onSetPrototype';
+export const SET_CURRENT_PROTOTYPE = 'prototype:onSetPrototype';
 
 export function set_current_prototype(index) {
     return {

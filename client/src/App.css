@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  font-family: 'Fira Sans', sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -46,4 +47,8 @@
 .rotate360 {
   transform: rotate(360deg) !important;
   transition: transform 1s ease-out !important;
+}
+
+.App .MuiButtonBase-root {
+  font-family: inherit;
 }

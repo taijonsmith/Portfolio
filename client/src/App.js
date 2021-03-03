@@ -23,7 +23,7 @@ function App() {
             main: '#21b366'
         },
         secondary: {
-            main: '#3b3e42'
+            main: '#2f2f2f'
         }
     },
     typography: {

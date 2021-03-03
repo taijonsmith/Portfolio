@@ -5,18 +5,21 @@ import './custom_components/css/custom_styles.css';
 import ErrorBoundary from './custom_components/error_boundary';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore} from 'redux';
 import { Provider } from 'react-redux';
-import allReducers from './redux/reducers'
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import allReducers from './redux/reducers';
 
 
-const store = createStore(allReducers, {
+/*const store = createStore(allReducers, {
   left_menu_opened: false,
   current_prototype: 1,
   mobile_mode: window.matchMedia("(max-width: 600px)").matches,
   dialog: {opened: false, type: null, title: null, content: null},
   user: {user_id: null, email: null, logged_in: false}
-});
+});*/
+
+const store = createStore(allReducers, compose(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <React.StrictMode>
