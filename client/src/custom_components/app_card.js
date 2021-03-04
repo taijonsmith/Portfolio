@@ -14,13 +14,13 @@ import Skeleton from '@material-ui/lab/Skeleton';
 const useStyles = makeStyles({
   media: {
     height: 140,
-    objectPosition: 'top'
+    objectFit: 'fill'
   },
 });
 
 export default function AppCard(props) {
   const classes = useStyles();
-  const item_description = "This is placeholder text for the card's content. Typically this section of content would consist of a quick description of the main content of the card.";
+  const item_description = "This is placeholder text for the card's description. This is placeholder text for the card's description. This is placeholder text for the card's description.";
   const onMediaFallback = event => event.target.src = FALLBACK_IMAGE;
 
   return (
@@ -43,22 +43,21 @@ export default function AppCard(props) {
                   <Skeleton animation="wave" height={10} width="80%" style={{ margin: '16px auto 12px auto' }} />
                   <Skeleton animation="wave" height={10} style={{ marginBottom: 6 }} />
                   <Skeleton animation="wave" height={10} />
-              </React.Fragment>
-              ) :
+              </React.Fragment>) :
               (<React.Fragment>
                 <Typography gutterBottom variant="h5" component="h2">
                 {props.name}
                 </Typography>
-                <Typography variant="body2" component="p">
+                <Typography className="item_description" variant="body2" component="p" noWrap>
                   {item_description}
                 </Typography>
               </React.Fragment>)
             }
           </CardContent>
         </CardActionArea>
-        <CardActions>
+        <CardActions className="card_actions">
           {props.refreshing ? null :
-            <Button className="action_button" size="small" color="primary">
+            <Button className="action_button" size="small">
                 <a className="card_link" href={props.url} target="_blank" rel="noreferrer">Go To Profile</a>
             </Button>
           }

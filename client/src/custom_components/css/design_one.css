@@ -25,6 +25,7 @@
 
 #design_one .content_page {
     margin: 16px;
+    text-align: -webkit-center;
 }
 
 #github_link {

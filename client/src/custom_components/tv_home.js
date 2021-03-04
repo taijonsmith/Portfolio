@@ -4,6 +4,7 @@ import { edit_class, debouncer } from '../utils';
 import { useEvent } from './utility_hooks/use_event';
 import AppCard from './app_card';
 import RefreshPage from './refresh_page';
+import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import Typography from '@material-ui/core/Typography';
@@ -60,6 +61,7 @@ const TvHome = React.forwardRef((props, ref) => {
             }
             load_initial_data();
         }
+        console.log(contentList)
     }, [contentList]);
 
     useEffect(() => {
@@ -76,23 +78,22 @@ const TvHome = React.forwardRef((props, ref) => {
 
     const card_content = contentList && contentList.length > 0 ? contentList.map((content, index) => {
         const image = content.image ? content.image.medium : null;
-        return (<AppCard key={index} name={content.name} image={image} url={content.url} refreshing={refreshing} />);
+        return (<Grid item xs><AppCard key={index} name={content.name} image={image} url={content.url} refreshing={refreshing} /></Grid>);
     }) : [];
 
 
     return (
         <React.Fragment>
             {loading ? <RefreshPage /> :
-                (<div ref={ref} id="actors_page" className="content_page">
-                    <Typography className="subheader" variant="h6">Home</Typography>
-                    <div className="refresh_container">
+                (<div ref={ref} id="home_page" className="content_page">
+                    <Typography className="subheader" variant="h6">Home
                         <IconButton ref={refresh_button} id="refresh_button" onClick={() => refresh_content(people_api_url)} aria-label="refresh button" disabled={refreshing}>
-                            <RefreshIcon />
-                        </IconButton>
-                    </div>
-                    <div className="flex-container card_content_container">
+                                <RefreshIcon />
+                            </IconButton>
+                    </Typography>
+                    <Grid container spacing={3}>
                         {card_content}
-                    </div>
+                    </Grid>
                 </div>)
             }
         </React.Fragment>

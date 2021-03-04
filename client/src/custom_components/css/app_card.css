@@ -4,7 +4,7 @@
     overflow: auto;
     min-width: 200px;
     max-width: 300px;
-    max-height: 356px;
+    height: 324px;
     background-color: var(--black-1);
     color: white;
 }
@@ -13,8 +13,21 @@
     transform: scale(1.03); 
 }
 
+#app_card .item_description {
+    white-space: pre-wrap;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+#app_card .card_actions {
+    padding: 16px;
+}
+
 #app_card .action_button {
     margin: auto;
+    background-color: var(--green-1);
+    color: white;
 }
 
 .card_content {
