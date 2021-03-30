@@ -90,7 +90,7 @@ export default function DialogBox() {
             {content}
         </DialogContent>
         <DialogActions>
-          <Button id="close_button" onClick={handleClose}>
+          <Button id="close_button" onClick={handleClose} color="primary">
             Close
           </Button>
         </DialogActions>

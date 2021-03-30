@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
     },
     search: {
-      display: 'flex',
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
       backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -39,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       alignSelf: 'center',
       float: 'right',
-      padding: theme.spacing(0, 1),
+      padding: theme.spacing(.75),
       color: fade(theme.palette.common.white, 0.35),
       '&:hover': {
         color: fade(theme.palette.common.white, 0.50),
@@ -73,34 +72,37 @@ export default function SearchBar(props){
     const [searchValue, setSearchValue] = useState('');
     const [valuePresent, setValuePresent] = useState(false);
     const mobile_mode = useSelector(state => state.mobile_mode);
+    const current_prototype = useSelector(state => state.current_prototype);
 
     function clear_input() {
       setSearchValue('');
       toolbar_search_input.current.firstElementChild.focus();
     }
+
+    useEffect(() => {
+      if (valuePresent) {
+        edit_class('remove', clear_button.current, 'hide_element');
+      }
+      else {
+        edit_class('add', clear_button.current, 'hide_element');
+      }
+    });
   
     useEffect(() => {
       if (searchValue === '' || null) {
         setValuePresent(false);
-        edit_class('add', clear_button.current, 'hide_element');
       }
-      else {
+      else if (!valuePresent) {
         setValuePresent(true);
-        edit_class('remove', clear_button.current, 'hide_element');
       }
-    }, [searchValue])
+    }, [searchValue]);
 
     useEffect(() => {
-      if (mobile_mode) {
-        edit_class('add', search_bar.current, 'hide_element');
-      }
-      else {
-        edit_class('remove', search_bar.current, 'hide_element');
-      }
-    }, [mobile_mode]);
+      setSearchValue('');
+    }, [current_prototype]);
 
     return (
-        <div ref={search_bar} className={classes.search} hidden={mobile_mode}>
+        <div ref={search_bar} className={(mobile_mode || props.current_prototype.index === 0) ? 'hide_element' : classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>

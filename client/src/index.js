@@ -11,14 +11,6 @@ import thunk from 'redux-thunk';
 import allReducers from './redux/reducers';
 
 
-/*const store = createStore(allReducers, {
-  left_menu_opened: false,
-  current_prototype: 1,
-  mobile_mode: window.matchMedia("(max-width: 600px)").matches,
-  dialog: {opened: false, type: null, title: null, content: null},
-  user: {user_id: null, email: null, logged_in: false}
-});*/
-
 const store = createStore(allReducers, compose(applyMiddleware(thunk)));
 
 ReactDOM.render(

@@ -7,7 +7,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
+import ExternalProfile from './external_profile';
 import Typography from '@material-ui/core/Typography';
 import Skeleton from '@material-ui/lab/Skeleton';
 
@@ -45,7 +45,7 @@ export default function AppCard(props) {
                   <Skeleton animation="wave" height={10} />
               </React.Fragment>) :
               (<React.Fragment>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography gutterBottom variant="h5" component="h2" className="card_name">
                 {props.name}
                 </Typography>
                 <Typography className="item_description" variant="body2" component="p" noWrap>
@@ -57,9 +57,7 @@ export default function AppCard(props) {
         </CardActionArea>
         <CardActions className="card_actions">
           {props.refreshing ? null :
-            <Button className="action_button" size="small">
-                <a className="card_link" href={props.url} target="_blank" rel="noreferrer">Go To Profile</a>
-            </Button>
+            <ExternalProfile url={props.url} />
           }
         </CardActions>
       </Card>

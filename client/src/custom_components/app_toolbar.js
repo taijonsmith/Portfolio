@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './css/toolbar.css';
+import './css/app_toolbar.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -13,16 +13,18 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
+import MenuDrawer from './menu_drawer';
 import SearchBar from './search_bar';
 import MenuOptions from './menu_options';
 import { useSelector, useDispatch } from 'react-redux';
 import { set_mobile_mode } from '../redux/actions/mobile_mode_actions';
-import { toggle_left_menu } from '../redux/actions/left_menu_actions';
 import { open_dialog } from '../redux/actions/dialog_actions';
 import { logout_user } from '../redux/actions/user_actions';
 
 
-export default function AppToolbar() {
+export default function AppToolbar(props) {
+    const [header, setHeader] = React.useState(null);
+    const [drawerOpened, setDrawerOpened] = React.useState(false);
     const [menuItems, setMenuItems] = React.useState([]);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [openMenu, setOpenMenu] = React.useState(false);
@@ -32,8 +34,8 @@ export default function AppToolbar() {
     const [notificationsCount, setNotificationsCount] = React.useState(7);
     const [messagesCount, setMessagesCount] = React.useState(3);
     const mobile_mode = useSelector(state => state.mobile_mode);
-    const left_menu_opened = useSelector(state => state.left_menu_opened);
     const user = useSelector(state => state.user);
+    const current_prototype = useSelector(state => state.current_prototype);
     const dispatch = useDispatch();
     const account_items = [ 
         {name: 'My Account', icon: <AccountBoxIcon />},
@@ -73,21 +75,18 @@ export default function AppToolbar() {
         event.stopPropagation();
     };
 
-    function close_drawer() {
-        if (left_menu_opened) {
-            dispatch(toggle_left_menu(left_menu_opened));
-        }
+    const close_drawer = () => {
+        setDrawerOpened(false);
     }
 
     useEffect(() => {
-        close_drawer();
-    }, [user.logged_in]);
+        setHeader(current_prototype.name);
+    }, [current_prototype]);
 
     useEffect(() => {
         const handleResize = () => {
             if (window.matchMedia("(max-width: 600px)").matches) {
                 dispatch(set_mobile_mode(true));
-                close_drawer();
             }
             else {
                 dispatch(set_mobile_mode(false));
@@ -96,19 +95,19 @@ export default function AppToolbar() {
         window.addEventListener('resize', handleResize);
     }, []);
 
-    
     return (
         <React.Fragment>
-            <AppBar>
-                <Toolbar className="toolbar">
+            <AppBar className="app_toolbar">
+                <Toolbar className="toolbar" color="primary">
                     <div id="toolbar_content">
-                        <IconButton id="menu_button" edge="start" color="inherit" aria-label="menu" onClick={() => dispatch(toggle_left_menu(left_menu_opened))}>
+                        <IconButton id="menu_button" edge="start" color="inherit" aria-label="menu" onClick={() => setDrawerOpened(true)}>
                             <MenuIcon />
                         </IconButton>
+                        <MenuDrawer drawerOpened={drawerOpened} close_drawer={close_drawer} />
                         <div id="name_container">
-                            <Typography id="name" variant="h6" noWrap>Prototype 1</Typography>
+                            <Typography variant="h6" noWrap>{header}</Typography>
                         </div>
-                        <SearchBar id="search_bar" mobile_mode={mobile_mode}></SearchBar>
+                        <SearchBar id="search_bar" mobile_mode={mobile_mode} current_prototype={current_prototype}></SearchBar>
 
                         {user.logged_in ? 
                         (<React.Fragment>
@@ -127,7 +126,7 @@ export default function AppToolbar() {
                                     <AccountCircle></AccountCircle>
                                 </Badge>
                             </IconButton>
-                        </React.Fragment>) : (<Button color="inherit" onClick={() => dispatch(open_dialog('login', 'Accounts', ''))}>Login</Button>)}
+                        </React.Fragment>) : (<Button className="toolbar_button" color="inherit" onClick={() => dispatch(open_dialog('login', 'Accounts', ''))}>Login</Button>)}
                         
                         <MenuOptions menu_items={menuItems} anchor={anchorEl} setAnchorEl={setAnchorEl} open={openMenu} setOpen={setOpenMenu}></MenuOptions>
                     </div>

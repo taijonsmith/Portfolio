@@ -1,0 +1,91 @@
+@media only screen and (max-width: 600px) {
+    #profile_home .grouped {
+        display: block !important;
+    }
+
+    #profile_home .content_header {
+        justify-content: center;
+    }
+}
+
+#profile_home {
+    margin: 16px;
+}
+
+#profile_home .card {
+    background-color: var(--grey-1);
+    color: white;
+    margin: 24px;
+    padding: 16px;
+    min-width: 40%;
+}
+
+#profile_home .avatar_container {
+    padding: 16px;
+}
+
+#profile_home .avatar {
+    margin: auto;
+    height: 160px;
+    width: 160px;
+}
+
+#profile_home .description {
+    text-align: center;
+    padding: 8px;
+    color: white;
+}
+
+#profile_home .grouped {
+    display: flex;
+    justify-content: space-between;
+}
+
+#profile_home .content_header {
+    width: 100%;
+    padding: 8px;
+    align-items: center;
+}
+
+#profile_home .work_header {
+    margin-bottom: 16px;
+}
+
+#profile_home .work_header {
+    margin-bottom: 8px;
+}
+
+#profile_home .work_info {
+    padding: 8px 0;
+}
+
+#profile_home .about_info {
+    padding: 4px 0;
+}
+
+#profile_home .icon {
+    margin-right: 16px;
+}
+
+#profile_home .card_body {
+    padding: 8px;
+}
+
+#profile_home .profile_content {
+    display: flex;
+    flex-direction: column;
+}
+
+#profile_home .language_icon {
+    height: 32px;
+    margin: 16px;
+}
+
+#profile_home .button_container {
+    padding: 16px;
+    text-align: center;
+}
+
+#profile_home .skills_header {
+    margin: 16px 16px 0 16px;
+}

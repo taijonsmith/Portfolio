@@ -1,5 +1,4 @@
 #main_fabs .fabs {
-    background-color: var(--green-1);
     color: white;
 }
 
@@ -18,7 +17,7 @@
     margin: 2vh 0 0 0 !important;
 }
 
-.fabs #github_link {
+.fabs .links {
     color: white;
 }
 

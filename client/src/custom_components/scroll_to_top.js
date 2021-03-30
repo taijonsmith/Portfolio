@@ -15,7 +15,7 @@ function ScrollToTop() {
 
   return (
     <Slide appear={false} direction="up" in={trigger}>
-      <Fab id="scroll_to_top_button" size="small" aria-label="scroll back to top" onClick={scroll_to_top}>
+      <Fab id="scroll_to_top_button" size="small" aria-label="scroll back to top" onClick={scroll_to_top} color="primary">
         <KeyboardArrowUpIcon/>
       </Fab>
     </Slide>

@@ -1,0 +1,16 @@
+#prototype_one .content_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#prototype_one .content_header {
+    margin: 16px auto;
+    color: white;
+}
+
+#prototype_one .card_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

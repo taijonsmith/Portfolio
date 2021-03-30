@@ -1,0 +1,10 @@
+#tabs_toolbar {
+    top: auto;
+    right: auto;
+    margin: 0 auto;
+    z-index: var(--level-1);
+}
+
+.tabs .MuiTab-textColorPrimary {
+    color: white;
+}

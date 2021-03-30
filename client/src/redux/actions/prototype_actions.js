@@ -1,8 +1,8 @@
 export const SET_CURRENT_PROTOTYPE = 'prototype:onSetPrototype';
 
-export function set_current_prototype(index) {
+export function set_current_prototype(prototype) {
     return {
         type: SET_CURRENT_PROTOTYPE,
-        payload: index
+        payload: {index: prototype.index, name: prototype.name}
     }
 }

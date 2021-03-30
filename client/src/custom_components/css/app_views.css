@@ -1,0 +1,7 @@
+#views {
+    margin: 16px;
+}
+
+#views .react-swipeable-view-container {
+    margin: 88px 0;
+}

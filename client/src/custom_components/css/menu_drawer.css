@@ -1,16 +1,16 @@
-.side_drawer div {
-    min-width: 15%;
-}
-
 .side_drawer :first-child {
     margin: 0;
     overflow: hidden;
 }
 
 #left_drawer div.MuiDrawer-paperAnchorDockedLeft {
-    background-color: white;
     box-shadow: var(--elevation-3);
     z-index: var(--level-3);
+}
+
+#left_drawer .MuiDrawer-paper {
+    background-color: var(--black-1);
+    color: white;
 }
 
 #drawer_list {
@@ -23,5 +23,5 @@
 }
 
 .list_item .menu_icon {
-    padding-right: 16px;
+    color: white;
 }

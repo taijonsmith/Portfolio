@@ -2,6 +2,5 @@
     color: white;
     position: fixed;
     bottom: 16vh;
-    background-color: var(--green-1);
     z-index: var(--level-4);
 }

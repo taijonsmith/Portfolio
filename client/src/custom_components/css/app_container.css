@@ -1,0 +1,25 @@
+#app_container {
+    width: 90%;
+    margin: 32px auto;
+    background-color: var(--grey-1);
+    color: var(--black-1);
+}
+
+#app_container .container_header {
+    display: flex;
+    padding: 8px;
+    align-items: center;
+}
+
+#app_container .container_title {
+    margin: auto;
+}
+
+#app_container .content_list {
+    flex-wrap: nowrap;
+}
+
+#app_container .button {
+    color: white;
+    margin: 16px auto;
+}

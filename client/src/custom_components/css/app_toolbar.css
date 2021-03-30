@@ -5,11 +5,15 @@
 
     #name_container {
         width: 100%;
+        
     }
 }
 
+.app_toolbar {
+    z-index: var(--very-front);
+}
+
 .toolbar {
-    background-color: var(--green-1);
     color: white;
 }
 
@@ -29,15 +33,16 @@
 }
 
 #name_container {
+    margin-right: auto;
     padding: 0 8px;
-}
-
-#name {
-    font-weight: bold;
 }
 
 #search_bar {
     margin: 0 auto !important;
+}
+
+#toolbar_content .toolbar_button {
+    margin-left: auto;
 }
 
 .MuiBadge-badge {

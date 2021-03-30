@@ -1,57 +1,62 @@
 .App {
-  width: 100%;
-  background-color: var(--black-1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  font-family: 'Fira Sans', sans-serif;
+    width: 100%;
+    background-color: var(--black-1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    font-family: 'Fira Sans', sans-serif;
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
+    width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
 
 ::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-  background-color: #aaadaf;
-}
-
-#header_area .main_toolbar {
-  z-index: var(--very-front);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    background-color: #aaadaf;
 }
 
 #content_area {
-  width: inherit;
+    display: flex;
+    width: inherit;
 }
 
 .subheader {
-  color: white;
+    color: white;
 }
 
 .center {
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
 }
 
 .rotate360 {
-  transform: rotate(360deg) !important;
-  transition: transform 1s ease-out !important;
+    transform: rotate(360deg) !important;
+    transition: transform 1s ease-out !important;
 }
 
 .hide_element {
-  display: none !important;
+    display: none !important;
+}
+
+.flex-container {
+    display: inline-flex;
 }
 
 .App .MuiButtonBase-root {
-  font-family: inherit;
+    font-family: inherit;
+}
+
+#github_link {
+    font-weight: bold;
 }
