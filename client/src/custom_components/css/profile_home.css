@@ -86,6 +86,10 @@
     text-align: center;
 }
 
+#profile_home .MuiButton-label {
+    color: white;
+}
+
 #profile_home .skills_header {
     margin: 16px 16px 0 16px;
 }

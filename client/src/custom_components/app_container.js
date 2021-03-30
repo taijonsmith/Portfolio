@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './css/app_container.css';
 import { edit_class } from '../utils';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
@@ -16,6 +15,7 @@ import { useDispatch } from 'react-redux';
 
 export default function AppContainer(props) {
     const refresh_button = React.useRef(null);
+    const grid = React.useRef(null);
     const dispatch = useDispatch();
     
     function rotate_button() {
@@ -32,6 +32,15 @@ export default function AppContainer(props) {
         props.refresh_content(props.url)
     }
 
+    useEffect(() => {
+        grid.current.addEventListener('mousewheel', function(e) {
+            if (grid.current.scrollWidth > grid.current.clientWidth) {
+                grid.current.scrollLeft -= (e.wheelDelta);
+                e.preventDefault();
+            }
+        });
+    }, []);
+
     return (
         <Card id="app_container" raised>
             <CardContent>
@@ -44,7 +53,7 @@ export default function AppContainer(props) {
                     </div>
                 </Typography>
 
-                <GridList className="content_list" cols={1.5} spacing={8}>
+                <GridList ref={grid} className="content_list" cols={1.5} spacing={8}>
                     {props.content_list.map((content, index) => {
                         const image = content.image ? content.image.medium : null;
                         return (
@@ -52,13 +61,9 @@ export default function AppContainer(props) {
                         )})
                     }
                 </GridList>
-                
-                <CardActions className="card_actions">
-                    <Button className="button" onClick={() => {dispatch(open_dialog('general', 'See More', 'In Progress...'))}}>See More</Button>
-                </CardActions>
-                
-
-                
+                <div className="button_container">
+                    <Button className="button" onClick={() => {dispatch(open_dialog('general', 'See More', 'In Progress...'))}} variant="contained" color="primary">See More</Button>
+                </div>
             </CardContent>
         </Card>
     );

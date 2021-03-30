@@ -1,5 +1,5 @@
 #app_container {
-    width: 90%;
+    width: 80%;
     margin: 32px auto;
     background-color: var(--grey-1);
     color: var(--black-1);
@@ -7,7 +7,6 @@
 
 #app_container .container_header {
     display: flex;
-    padding: 8px;
     align-items: center;
 }
 
@@ -17,6 +16,12 @@
 
 #app_container .content_list {
     flex-wrap: nowrap;
+}
+
+#app_container .button_container {
+    padding-top: 24px;
+    margin: auto;
+    text-align: center;
 }
 
 #app_container .button {
