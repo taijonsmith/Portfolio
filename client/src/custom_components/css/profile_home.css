@@ -64,7 +64,7 @@
 }
 
 #profile_home .icon {
-    margin-right: 16px;
+    margin-right: 8px;
 }
 
 #profile_home .card_body {
@@ -78,7 +78,7 @@
 
 #profile_home .language_icon {
     height: 32px;
-    margin: 16px;
+    margin: 8px;
 }
 
 #profile_home .button_container {
